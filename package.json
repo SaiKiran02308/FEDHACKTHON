@@ -1,12 +1,14 @@
 {
   "name": "donorr",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "homepage": "https://SaiKiran02308.github.io/FEDHACKTHON",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -33,6 +35,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "gh-pages": "^6.3.0",
     "globals": "^13.24.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
