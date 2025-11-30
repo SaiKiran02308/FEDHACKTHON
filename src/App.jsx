@@ -35,9 +35,9 @@ import SystemOverview from './pages/SystemOverview';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      {/* IMPORTANT: basename must match your repo name on GitHub Pages */}
+      <Router basename="/FEDHACKTHON">
         <div className="min-h-screen bg-slate-50">
-
           <Navbar />
 
           <main>
@@ -58,55 +58,78 @@ function App() {
               <Route path="/emergency-response" element={<EmergencyResponse />} />
 
               {/* --- USER PROTECTED ROUTES --- */}
-              <Route path="/dashboard" element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              } />
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
 
-              <Route path="/profile" element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              } />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                }
+              />
 
-              <Route path="/create-donation" element={
-                <ProtectedRoute allowedRoles={['donor']}>
-                  <CreateDonation />
-                </ProtectedRoute>
-              } />
+              <Route
+                path="/create-donation"
+                element={
+                  <ProtectedRoute allowedRoles={['donor']}>
+                    <CreateDonation />
+                  </ProtectedRoute>
+                }
+              />
 
-              <Route path="/create-request" element={
-                <ProtectedRoute allowedRoles={['recipient']}>
-                  <CreateRequest />
-                </ProtectedRoute>
-              } />
+              <Route
+                path="/create-request"
+                element={
+                  <ProtectedRoute allowedRoles={['recipient']}>
+                    <CreateRequest />
+                  </ProtectedRoute>
+                }
+              />
 
               {/* --- ADMIN ROUTES --- */}
-              <Route path="/admin" element={
-                <ProtectedRoute allowedRoles={['admin']}>
-                  <AdminDashboard />
-                </ProtectedRoute>
-              } />
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute allowedRoles={['admin']}>
+                    <AdminDashboard />
+                  </ProtectedRoute>
+                }
+              />
 
-              <Route path="/admin/users" element={
-                <ProtectedRoute allowedRoles={['admin']}>
-                  <ManageUsers />
-                </ProtectedRoute>
-              } />
+              <Route
+                path="/admin/users"
+                element={
+                  <ProtectedRoute allowedRoles={['admin']}>
+                    <ManageUsers />
+                  </ProtectedRoute>
+                }
+              />
 
-              <Route path="/admin/reports" element={
-                <ProtectedRoute allowedRoles={['admin']}>
-                  <Reports />
-                </ProtectedRoute>
-              } />
+              <Route
+                path="/admin/reports"
+                element={
+                  <ProtectedRoute allowedRoles={['admin']}>
+                    <Reports />
+                  </ProtectedRoute>
+                }
+              />
 
-              <Route path="/admin/system" element={
-                <ProtectedRoute allowedRoles={['admin']}>
-                  <SystemOverview />
-                </ProtectedRoute>
-              } />
-
+              <Route
+                path="/admin/system"
+                element={
+                  <ProtectedRoute allowedRoles={['admin']}>
+                    <SystemOverview />
+                  </ProtectedRoute>
+                }
+              />
             </Routes>
           </main>
 
